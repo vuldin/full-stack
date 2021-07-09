@@ -15,7 +15,6 @@
     "express": "^4.17.1",
     "ibm_db": "^2.7.4",
     "node-addon-api": "^4.0.0",
-    "node-pre-gyp": "^0.17.0",
-    "odbc": "^2.3.6"
+    "node-pre-gyp": "^0.17.0"
   }
 }
