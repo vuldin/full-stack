@@ -5,8 +5,8 @@ WORKDIR /usr/src/app
 
 USER 0
 RUN yum install sudo -y
-# RUN yum-config-manager --enable rhel-server-rhscl-7-rpms
 RUN adduser docker
+RUN sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
 RUN sudo yum install devtoolset-8
 RUN scl enable devtoolset-8 bash
 RUN sudo yum install libnuma-dev
