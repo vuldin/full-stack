@@ -9,7 +9,7 @@ RUN sudo yum update
 RUN dnf install gcc
 RUN yes | dnf install python2
 # RUN dnf install numactl-devel
-RUN sudo yum libnuma-dev
+RUN sudo yum libnuma-devel
 # RUN yes | sudo yum install unixODBC unixODBC-devel 
 # RUN sudo yum install devtoolset-8
 # RUN scl enable devtoolset-8 bash
