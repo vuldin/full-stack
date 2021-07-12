@@ -4,7 +4,8 @@ ENV http_proxy http://10.3.0.3:3128
 WORKDIR /usr/src/app
 
 USER 0
-
+RUN apt-get update \
+ && apt-get install -y sudo
 # RUN yum-config-manager --enable rhel-server-rhscl-7-rpms
 RUN yum install devtoolset-8
 RUN scl enable devtoolset-8 bash
