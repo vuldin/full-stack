@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 USER 0
 RUN yum install sudo -y
 RUN adduser docker
+RUN yum list available gcc-toolset-N-\*
 # RUN sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
 # RUN sudo subscription-manager repos --enable rhel-7-server-devtools-rpms 
 # RUN sudo subscription-manager repos --enable rhel-7-server-extras-rpms
