@@ -12,7 +12,7 @@ RUN sudo yum update
 RUN export https_proxy=http://10.3.0.3:3128
 RUN export http_proxy=http://10.3.0.3:3128
 # RUN yes | sudo yum install unixODBC unixODBC-devel 
-RUN npm install odbc
+
 
 
 # RUN sudo yum install devtoolset-8
@@ -20,6 +20,7 @@ RUN npm install odbc
 # RUN sudo yum install libnuma-dev
 
 COPY . /usr/src/app
+RUN npm install odbc
 RUN chown -R 1001:0 /usr/src/app
 # RUN npm install
 USER 1001
