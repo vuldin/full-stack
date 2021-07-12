@@ -7,7 +7,8 @@ USER 0
 RUN yum install sudo -y
 RUN sudo yum update
 RUN dnf install gcc
-RUN yes | sudo yum install python27
+RUN python -V
+# RUN yes | sudo yum install python27
 
 # RUN yes | sudo yum install unixODBC unixODBC-devel 
 # RUN sudo yum install devtoolset-8
