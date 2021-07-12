@@ -13,7 +13,7 @@ RUN export https_proxy=http://10.3.0.3:3128
 RUN export http_proxy=http://10.3.0.3:3128
 # RUN yes | sudo yum install unixODBC unixODBC-devel 
 
-
+RUN sudo yum install unixODBC unixODBC-devel
 
 # RUN sudo yum install devtoolset-8
 # RUN scl enable devtoolset-8 bash
