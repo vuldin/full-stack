@@ -8,7 +8,7 @@ RUN yum install sudo -y
 
 RUN sudo yum update
 RUN dnf install gcc
-RUN sudo chown -R $(whoami) ~/.npm
+# RUN sudo chown -R $(whoami) ~/.npm
 # RUN sudo yum list devtoolset-8\*
 
 # RUN sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
