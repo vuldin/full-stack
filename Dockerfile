@@ -5,10 +5,10 @@ WORKDIR /usr/src/app
 
 USER 0
 
-RUN sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
-RUN sudo yum install devtoolset-8
+RUN yum-config-manager --enable rhel-server-rhscl-7-rpms
+RUN yum install devtoolset-8
 RUN scl enable devtoolset-8 bash
-RUN sudo yum install libnuma-dev
+RUN yum install libnuma-dev
 COPY . /usr/src/app
 RUN chown -R 1001:0 /usr/src/app
 RUN npm install
