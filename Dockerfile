@@ -7,8 +7,8 @@ USER 0
 RUN yum install sudo -y
 RUN adduser docker
 RUN sudo yum update
-RUN dnf install 
-RUN sudo yum list devtoolset-8\*
+RUN dnf install gcc
+# RUN sudo yum list devtoolset-8\*
 
 # RUN sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
 # RUN sudo subscription-manager repos --enable rhel-7-server-devtools-rpms 
@@ -16,8 +16,8 @@ RUN sudo yum list devtoolset-8\*
 # RUN sudo subscription-manager repos --enable rhel-7-server-optional-rpms
 # RUN sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
 # RUN sudo yum install devtoolset-8
-RUN scl enable devtoolset-8 bash
-RUN sudo yum install libnuma-dev
+# RUN scl enable devtoolset-8 bash
+# RUN sudo yum install libnuma-dev
 COPY . /usr/src/app
 RUN chown -R 1001:0 /usr/src/app
 RUN npm install
