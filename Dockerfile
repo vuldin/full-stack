@@ -1,4 +1,4 @@
-FROM registry.redhat.io/rhscl/nodejs-14-rhel7
+FROM registry.redhat.io/rhel8/nodejs-14
 ENV https_proxy http://10.3.0.3:3128
 ENV http_proxy http://10.3.0.3:3128
 WORKDIR /usr/src/app
