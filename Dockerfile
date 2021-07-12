@@ -9,7 +9,7 @@ RUN yum install sudo -y
 RUN sudo yum update
 # RUN dnf install gcc
 
-RUN sudo yum install unixODBC unixODBC-devel
+RUN yes | sudo yum install unixODBC unixODBC-devel 
 RUN npm install odbc
 
 
