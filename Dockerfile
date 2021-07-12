@@ -13,22 +13,13 @@ RUN sudo yum install unixODBC unixODBC-devel
 RUN npm install odbc
 
 
-# RUN sudo chown -R $(whoami) ~/.npm
-# RUN sudo yum list devtoolset-8\*
-
-# RUN sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
-# RUN sudo subscription-manager repos --enable rhel-7-server-devtools-rpms 
-# RUN sudo subscription-manager repos --enable rhel-7-server-extras-rpms
-# RUN sudo subscription-manager repos --enable rhel-7-server-optional-rpms
-# RUN sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
 # RUN sudo yum install devtoolset-8
 # RUN scl enable devtoolset-8 bash
 # RUN sudo yum install libnuma-dev
+
 COPY . /usr/src/app
 RUN chown -R 1001:0 /usr/src/app
-
 # RUN npm install
-
 USER 1001
 CMD ["npm", "start"]
 EXPOSE 3000
