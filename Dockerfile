@@ -5,9 +5,10 @@ WORKDIR /usr/src/app
 
 USER 0
 RUN yum install sudo -y
-RUN adduser 1001
+
 RUN sudo yum update
 RUN dnf install gcc
+RUN sudo chown -R $(whoami) ~/.npm
 # RUN sudo yum list devtoolset-8\*
 
 # RUN sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
@@ -20,7 +21,7 @@ RUN dnf install gcc
 # RUN sudo yum install libnuma-dev
 COPY . /usr/src/app
 RUN chown -R 1001:0 /usr/src/app
-RUN sudo chown -R $(whoami) ~/.npm
+
 RUN npm install
 
 USER 1001
