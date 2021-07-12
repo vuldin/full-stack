@@ -7,7 +7,12 @@ USER 0
 RUN yum install sudo -y
 
 RUN sudo yum update
-RUN dnf install gcc
+# RUN dnf install gcc
+
+RUN sudo yum install unixODBC unixODBC-devel
+RUN npm install odbc
+
+
 # RUN sudo chown -R $(whoami) ~/.npm
 # RUN sudo yum list devtoolset-8\*
 
@@ -22,7 +27,7 @@ RUN dnf install gcc
 COPY . /usr/src/app
 RUN chown -R 1001:0 /usr/src/app
 
-RUN npm install
+# RUN npm install
 
 USER 1001
 CMD ["npm", "start"]
