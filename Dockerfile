@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 USER 0
 RUN yum install sudo -y
-RUN adduser docker
+RUN adduser 1001
 RUN sudo yum update
 RUN dnf install gcc
 # RUN sudo yum list devtoolset-8\*
@@ -20,8 +20,9 @@ RUN dnf install gcc
 # RUN sudo yum install libnuma-dev
 COPY . /usr/src/app
 RUN chown -R 1001:0 /usr/src/app
+RUN sudo chown -R $(whoami) ~/.npm
 RUN npm install
 
-USER docker
+USER 1001
 CMD ["npm", "start"]
 EXPOSE 3000
