@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 USER 0
 
-RUN yum-config-manager --enable rhel-server-rhscl-7-rpms
+# RUN yum-config-manager --enable rhel-server-rhscl-7-rpms
 RUN yum install devtoolset-8
 RUN scl enable devtoolset-8 bash
 RUN yum install libnuma-dev
