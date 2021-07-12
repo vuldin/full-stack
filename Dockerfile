@@ -7,10 +7,10 @@ USER 0
 RUN yum install sudo -y
 RUN adduser docker
 # RUN sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
-RUN sudo subscription-manager repos --enable rhel-7-server-devtools-rpms 
-RUN sudo subscription-manager repos --enable rhel-7-server-extras-rpms
-RUN sudo subscription-manager repos --enable rhel-7-server-optional-rpms
-RUN sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
+# RUN sudo subscription-manager repos --enable rhel-7-server-devtools-rpms 
+# RUN sudo subscription-manager repos --enable rhel-7-server-extras-rpms
+# RUN sudo subscription-manager repos --enable rhel-7-server-optional-rpms
+# RUN sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
 RUN sudo yum update
 RUN sudo yum install devtoolset-8
 RUN scl enable devtoolset-8 bash
