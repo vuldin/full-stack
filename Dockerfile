@@ -1,4 +1,4 @@
-FROM registry.redhat.io/rhel8/nodejs-14
+FROM registry.redhat.io/rhscl/nodejs-14-rhel7
 ENV https_proxy http://10.3.0.3:3128
 ENV http_proxy http://10.3.0.3:3128
 WORKDIR /usr/src/app
@@ -10,13 +10,14 @@ RUN dnf install gcc
 RUN yes | dnf install python2
 # RUN sudo yum install numactl
 RUN cat /etc/yum.conf
-RUN ls /etc/yum.repos.d
-# RUN dnf install numactl-devel
-# RUN sudo yum libnuma-devel
-# RUN yes | sudo yum install unixODBC unixODBC-devel 
-# RUN sudo yum install devtoolset-8
-# RUN scl enable devtoolset-8 bash
-# RUN sudo yum install libnuma-dev
+RUN cat /etc/yum.repos.d/redhat.repo
+
+
+
+# RUN sudo subscription-manager list --available
+# RUN sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+# RUN sudo yum repolist
+
 
 COPY . /usr/src/app
 RUN npm install --unsafe-perm ibm_db
