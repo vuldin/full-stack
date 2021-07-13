@@ -12,7 +12,7 @@ RUN sudo yum install -y python2
 # RUN yes | dnf install python2
 RUN cat /etc/yum.conf
 RUN cat /etc/yum.repos.d/redhat.repo
-# RUN subscription-manager repos --enable rhel-7-server-extras-rpms
+RUN subscription-manager repos --enable rhel-7-server-extras-rpms
 RUN sudo yum install numactl-devel
 
 
