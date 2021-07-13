@@ -6,9 +6,10 @@ WORKDIR /usr/src/app
 USER 0
 RUN yum install sudo -y
 RUN sudo yum update
-RUN dnf install gcc
-RUN yes | dnf install python2
-# RUN sudo yum install numactl
+RUN sudo yum install make gcc gcc-c++ kernel-devel openssl-devel bzip2-devel
+RUN sudo yum install -y python2
+# RUN dnf install gcc
+# RUN yes | dnf install python2
 RUN cat /etc/yum.conf
 RUN cat /etc/yum.repos.d/redhat.repo
 
