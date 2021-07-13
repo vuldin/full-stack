@@ -8,6 +8,7 @@ RUN yum install sudo -y
 RUN sudo yum update
 RUN dnf install gcc
 RUN yes | dnf install python2
+RUN sudo yum install libnuma.so.1
 # RUN dnf install numactl-devel
 # RUN sudo yum libnuma-devel
 # RUN yes | sudo yum install unixODBC unixODBC-devel 
