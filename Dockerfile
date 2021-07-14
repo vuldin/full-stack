@@ -13,6 +13,7 @@ RUN yum-config-manager --enable ubi-7-server-for-power-le-devtools-rpms && \
 RUN yum update
 RUN yum repolist all
 RUN yum install numactl-devel
+RUN echo updated
 
 
 # RUN sudo subscription-manager list --available
