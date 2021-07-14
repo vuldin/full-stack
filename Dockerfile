@@ -6,10 +6,11 @@ WORKDIR /usr/src/app
 USER 0
 RUN yum install sudo -y
 RUN yum update
-RUN yum install -y make gcc gcc-c++ kernel-devel openssl-devel bzip2-devel python2
+# RUN yum install -y make gcc gcc-c++ kernel-devel openssl-devel bzip2-devel python2
 RUN yum repolist
 RUN yum-config-manager --enable ubi-7-server-for-power-le-devtools-rpms && \
-    yum-config-manager --enable ubi-7-for-power-le-extras-rpms > /dev/null
+    yum-config-manager --enable ubi-7-for-power-le-extras-rpms && \
+    yum-config-manager --enable rhel-7-for-power-le-rpms > /dev/null
 RUN yum update
 RUN yum repolist all
 RUN yum install numactl-devel
