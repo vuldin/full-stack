@@ -10,12 +10,13 @@ RUN sudo yum install make gcc gcc-c++ kernel-devel openssl-devel bzip2-devel
 RUN sudo yum install -y python2
 # RUN dnf install gcc
 # RUN yes | dnf install python2
-RUN cat /etc/yum.conf
-RUN cat /etc/yum.repos.d/redhat.repo
-RUN yum-config-manager --enable rhel-7-for-power-le-rpms
-RUN sudo yum repolist
-RUN sudo yum update
-RUN sudo yum install numactl-devel
+# RUN cat /etc/yum.conf
+# RUN cat /etc/yum.repos.d/redhat.repo
+# RUN yum-config-manager --enable rhel-7-for-power-le-rpms
+# RUN sudo yum repolist
+# RUN sudo yum update
+# RUN sudo yum install numactl-devel
+yum repolist all
 
 
 # RUN sudo subscription-manager list --available
