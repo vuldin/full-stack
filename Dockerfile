@@ -25,7 +25,7 @@ yum repolist all
 
 
 COPY . /usr/src/app
-RUN npm install --unsafe-perm ibm_db
+# RUN npm install --unsafe-perm ibm_db
 RUN npm install
 RUN chown -R 1001:0 /usr/src/app
 USER 1001
