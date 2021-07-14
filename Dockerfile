@@ -5,19 +5,14 @@ WORKDIR /usr/src/app
 
 USER 0
 RUN yum install sudo -y
-RUN sudo yum update
-RUN sudo yum install make gcc gcc-c++ kernel-devel openssl-devel bzip2-devel
-RUN sudo yum install -y python2
-# RUN dnf install gcc
-# RUN yes | dnf install python2
-# RUN cat /etc/yum.conf
-# RUN cat /etc/yum.repos.d/redhat.repo
-RUN sudo yum repolist --disablerepo=*
-RUN sudo yum-config-manager --enable ubi-7-server-for-power-le-devtools-rpms && \
-    sudo yum-config-manager --enable ubi-7-for-power-le-extras-rpms > /dev/null
-RUN sudo yum update
-RUN sudo yum repolist all
-RUN sudo yum install numactl-devel
+RUN yum update
+RUN yum install -y make gcc gcc-c++ kernel-devel openssl-devel bzip2-devel python2
+RUN yum repolist
+RUN yum-config-manager --enable ubi-7-server-for-power-le-devtools-rpms && \
+    yum-config-manager --enable ubi-7-for-power-le-extras-rpms > /dev/null
+RUN yum update
+RUN yum repolist all
+RUN yum install numactl-devel
 
 
 # RUN sudo subscription-manager list --available
