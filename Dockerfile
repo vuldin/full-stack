@@ -12,7 +12,8 @@ RUN sudo yum install -y python2
 # RUN yes | dnf install python2
 # RUN cat /etc/yum.conf
 # RUN cat /etc/yum.repos.d/redhat.repo
-# RUN yum-config-manager --enable rhel-7-for-power-le-rpms
+RUN yum-config-manager --enable ubi-7-server-for-power-le-devtools-rpms
+RUN yum-config-manager --enable ubi-7-for-power-le-extras-rpms
 # RUN sudo yum repolist
 # RUN sudo yum update
 # RUN sudo yum install numactl-devel
