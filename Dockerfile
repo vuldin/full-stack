@@ -4,7 +4,7 @@ ENV http_proxy http://10.3.0.3:3128
 WORKDIR /usr/src/app
 USER 0
 RUN yum repolist
-#RUN yum install --enablerepo=rhel-8-for-ppc64le-baseos-rpms numactl-devel
+RUN yum install --enablerepo=rhel-8-for-ppc64le-baseos-rpms numactl-devel
 COPY . /usr/src/app
 RUN npm install
 RUN chown -R 1001:0 /usr/src/app
