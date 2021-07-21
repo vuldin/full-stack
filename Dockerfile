@@ -8,7 +8,7 @@ USER 0
 #RUN yum install --enablerepo=rhel-8-for-ppc64le-baseos-rpms numactl-devel
 #RUN yum-config-manager --enable rhel-8-for-ppc64le-baseos-rpms
 #RUN yum install --disableplugin=subscription-manager --enablerepo=rhel-8-for-ppc64le-baseos-rpms numactl-devel
-RUN yum --disableplugin=subscription-manager clean all
+#RUN yum --disableplugin=subscription-manager clean all
 COPY . /usr/src/app
 RUN npm install
 RUN chown -R 1001:0 /usr/src/app
