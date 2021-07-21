@@ -7,7 +7,5 @@
     "start": "node server/index.js"
   },
   "license": "ISC",
-  "dependencies": {
-    "ibm_db": "^2.7.4"
-  }
+  "dependencies": {}
 }
