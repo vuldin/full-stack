@@ -7,5 +7,10 @@
     "start": "node server/index.js"
   },
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "ibm_db": "^2.7.4"
+  },
+  "volta": {
+    "node": "14.16.0"
+  }
 }
