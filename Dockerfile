@@ -16,15 +16,13 @@ USER 0
 #RUN yum --disableplugin=subscription-manager clean all
 
 # Copy entitlements
-COPY ./etc-pki-entitlement /etc/pki/entitlement
+COPY /etc/pki/entitlement /etc/pki/entitlement
 # Copy subscription manager configurations
-COPY ./rhsm-conf /etc/rhsm
-COPY ./rhsm-ca /etc/rhsm/ca
+COPY /etc/rhsm /etc/rhsm
+#COPY /rhsm/ca /etc/rhsm/ca
 # Delete /etc/rhsm-host to use entitlements from the build container
-RUN rm /etc/rhsm-host && \
-    # Initialize /etc/yum.repos.d/redhat.repo
-    # See https://access.redhat.com/solutions/1443553
-    yum --disableplugin=subscription-manager repolist --disablerepo=* && \
+#RUN #rm /etc/rhsm-host && \
+RUN yum --disableplugin=subscription-manager repolist --disablerepo=* && \
     subscription-manager repos --enable cecc-rhel8.3-ppc64le-baseos && \
     yum --disableplugin=subscription-manager -y update && \
     yum --disableplugin=subscription-manager -y install numactl-devel && \
