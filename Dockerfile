@@ -10,7 +10,7 @@ USER 0
 #RUN yum install --disableplugin=subscription-manager --enablerepo=rhel-8-for-ppc64le-baseos-rpms numactl-devel
 #RUN yum --disableplugin=subscription-manager clean all
 COPY . /usr/src/app
-RUN npm install
+RUN npm install --unsafe-perm
 RUN chown -R 1001:0 /usr/src/app
 USER 1001
 CMD ["npm", "start"]
