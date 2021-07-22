@@ -9,11 +9,28 @@ USER 0
 #RUN yum-config-manager --enable rhel-8-for-ppc64le-baseos-rpms
 #RUN yum install --disableplugin=subscription-manager --enablerepo=rhel-8-for-ppc64le-baseos-rpms numactl-devel
 #RUN yum --disableplugin=subscription-manager clean all
-RUN yum --disableplugin=subscription-manager repolist
-RUN yum --disableplugin=subscription-manager install -y yum-utils
-RUN yum-config-manager --enable cecc-rhel8.3-ppc64le-baseos
-RUN yum --disableplugin=subscription-manager install numactl-devel
-RUN yum --disableplugin=subscription-manager clean all
+#RUN yum --disableplugin=subscription-manager repolist
+#RUN yum --disableplugin=subscription-manager install -y yum-utils
+#RUN yum-config-manager --disableplugin=subscription-manager --enable cecc-rhel8.3-ppc64le-baseos
+#RUN yum --disableplugin=subscription-manager install numactl-devel
+#RUN yum --disableplugin=subscription-manager clean all
+
+# Copy entitlements
+COPY ./etc-pki-entitlement /etc/pki/entitlement
+# Copy subscription manager configurations
+COPY ./rhsm-conf /etc/rhsm
+COPY ./rhsm-ca /etc/rhsm/ca
+# Delete /etc/rhsm-host to use entitlements from the build container
+RUN rm /etc/rhsm-host && \
+    # Initialize /etc/yum.repos.d/redhat.repo
+    # See https://access.redhat.com/solutions/1443553
+    yum --disableplugin=subscription-manager repolist --disablerepo=* && \
+    subscription-manager repos --enable cecc-rhel8.3-ppc64le-baseos && \
+    yum --disableplugin=subscription-manager -y update && \
+    yum --disableplugin=subscription-manager -y install numactl-devel && \
+    # Remove entitlements and Subscription Manager configs
+    rm -rf /etc/pki/entitlement && \
+    rm -rf /etc/rhsm
 COPY . /usr/src/app
 RUN npm install --unsafe-perm
 RUN chown -R 1001:0 /usr/src/app
