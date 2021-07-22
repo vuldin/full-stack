@@ -10,7 +10,7 @@ USER 0
 #RUN yum install --disableplugin=subscription-manager --enablerepo=rhel-8-for-ppc64le-baseos-rpms numactl-devel
 #RUN yum --disableplugin=subscription-manager clean all
 RUN yum --disableplugin=subscription-manager repolist
-RUN cat /etc/yum.repos.d/redhat.repo
+RUN yum --disableplugin=subscription-manager install -y yum-utils
 RUN yum-config-manager --enable cecc-rhel8.3-ppc64le-baseos
 RUN yum --disableplugin=subscription-manager install numactl-devel
 RUN yum --disableplugin=subscription-manager clean all
